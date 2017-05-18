@@ -1,0 +1,22 @@
+{
+  "name": "angular-boilerplate",
+  "version": "1.0.0",
+  "description": "angular boilerplate",
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install",
+    "start": "./node_modules/.bin/hs -a localhost -p 9000 -o",
+    "pretest":"npm install",
+    "test": "./node_modules/.bin/browser-sync start --server app --files 'app/index.html'"
+  },
+  "keywords": [
+    "Angular",
+    "Boilerplate"
+  ],
+  "author": "CuityMiko <15201776956@163.com>",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "http-server": "^0.9.0"
+  }
+}
