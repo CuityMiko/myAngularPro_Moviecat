@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" ng-app="myApp">
+<html lang="zh-CN" ng-app="moviecatApp">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,14 +37,13 @@
 			<!--左侧导航-->
 			<div class="col-sm-3 col-md-2 sidebar">
 				<ul class="nav nav-sidebar">
-					<li class="active"><a href="#">正在热映</a></li>
-					<li><a href="#">即将上映</a></li>
-					<li><a href="#">Top</a></li>
+					<li class="active"><a href="#/in_theaters">正在热映</a></li>
+					<li><a href="#/coming_soon">即将上映</a></li>
+					<li><a href="#/top250">Top250</a></li>
 				</ul>
 			</div>
-			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-				<!--中心面板标题-->
-				<h1 class="page-header">Dashboard</h1>
+			<!--中心内容-->
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-view>
 			</div>
 		</div>
 	</div>
@@ -52,10 +51,8 @@
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="app.js"></script>
-  <script src="view1/view1.js"></script>
-  <script src="view2/view2.js"></script>
-  <script src="components/version/version.js"></script>
-  <script src="components/version/version-directive.js"></script>
-  <script src="components/version/interpolate-filter.js"></script>
+	<script src="in_theaters/controller.js"></script>
+	<script src="coming_soon/controller.js"></script>
+	<script src="top250/controller.js"></script>
 </body>
 </html>
