@@ -10,7 +10,7 @@
 	]);
 	//配置路由规则
 	moviecatApp.config(['$routeProvider', function($routeProvider) {
-		$routeProvider.otherwise({redirectTo: '/in_theaters'}); //当没有匹配到路由的时候则会跳转到默认配置的路由上去
+		$routeProvider.otherwise({redirectTo: '/in_theaters/1'}); //当没有匹配到路由的时候则会跳转到默认配置的路由上去
 	}]);
 
 })(angular)

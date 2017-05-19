@@ -1,4 +1,4 @@
-<h1 class="page-header">正在热映</h1>
+<h1 class="page-header" ng-if="movies && movies.total>0">{{movies.title}}</h1>
 <div class="alert alert-danger" role="alert" ng-if="massage">{{massage}}</div>
 <ul class="list-group" ng-if="movies && movies.total>0">
   <li class="list-group-item" ng-repeat="movie in movies.subjects">
@@ -41,4 +41,12 @@
 		<span></span>
 		<span></span>
 </div>
-<p>总共<strong>{{total}}</strong>条记录</p>
+<div ng-show="!loading">
+	<p>总共<strong>{{total}}</strong>条记录，当前第<strong>{{currentpage}}</strong>页，共<strong>{{pagetotal}}</strong>页</p>
+	<nav aria-label="...">
+		<ul class="pager">
+			<li class="previous" ng-class="{disabled:currentpage<=1}"><a href="javascritp:;" ng-click="go(currentpage-1)"><span aria-hidden="true">&larr;</span> 上一页</a></li>
+			<li class="next" ng-class="{disabled:currentpage>=pagetotal}"><a href="javascritp:;" ng-click="go(currentpage+1)">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+		</ul>
+	</nav>
+</div>
