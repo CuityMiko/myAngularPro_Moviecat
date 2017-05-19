@@ -1,1 +1,36 @@
 <h1 class="page-header">正在热映</h1>
+<div class="alert alert-danger" role="alert" ng-if="massage">{{massage}}</div>
+<ul class="list-group" ng-if="movies && movies.total>0">
+  <li class="list-group-item" ng-repeat="movie in movies.subjects">
+    <span class="badge">{{movie.rating.average}}</span>
+    <div class="media">
+		<div class="media-left">
+			<a ng-href="#">
+				<img class="media-object" ng-src="{{movie.images.medium}}" alt="{{movie.alt}}">
+			</a>
+		</div>
+		<div class="media-body">
+			<h3 class="media-heading">{{movie.title}}</h3>
+			<p>
+				<span>类型：</span>
+				<span>{{movie.genres.join('、')}}</span>
+				&nbsp;&nbsp;&nbsp;
+				<span>上映年份：</span>
+				<span>{{movie.year}}</span>
+			</p>
+			<p>
+				<span>导演：</span>
+				<span ng-repeat="director in movie.directors">
+					{{director.name}}{{!$last?'、':''}}
+				</span>
+			</p>
+			<p>
+				<span>主演：</span>
+				<span ng-repeat="cast in movie.casts">
+					{{cast.name}}{{!$last?'、':''}}
+				</span>
+			</p>
+		</div>
+	</div>
+  </li>
+</ul>

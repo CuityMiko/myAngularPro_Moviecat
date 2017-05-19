@@ -11,7 +11,17 @@
 		});
 	}])
 	//声明控制器
-	in_theaters.controller('IntheatersController', ['$scope',function($scope) {
-
+	//注入一个做ajax请求的$http服务
+	in_theaters.controller('IntheatersController', ['$scope','$http',function($scope,$http) {
+		$scope.movies={};
+		$scope.massage='';
+		$http.get('/app/datas/in_theaters.json').then((result)=>{
+			if(result.status==200)
+				$scope.movies=result.data;
+			else
+				$scope.massage=`请求数据失败，错误信息：${result.statusText}`;
+		}, (err)=>{
+			$scope.massage=`请求数据失败，错误信息：${err.statusText}`;
+		});
 	}]);
 })(angular)
