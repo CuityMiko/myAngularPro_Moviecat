@@ -3,12 +3,12 @@
 	'use strict';
 	//声明正在热映子模块
 	//注入自定义的跨域请求jsonp模块：moviecatApp.services.http
-	var in_theaters=angular.module('moviecatApp.in_theaters', ['ngRoute','moviecatApp.services.http']);
+	var movie_list=angular.module('moviecatApp.movie_list', ['ngRoute','moviecatApp.services.http']);
 	//配置路由
-	in_theaters.config(['$routeProvider', function($routeProvider) {
-		$routeProvider.when('/in_theaters/:page', {
-			templateUrl: 'in_theaters/index.html',
-			controller: 'IntheatersController'
+	movie_list.config(['$routeProvider', function($routeProvider) {
+		$routeProvider.when('/:classify/:page', {
+			templateUrl: 'movie_list/index.html',
+			controller: 'MovieListController'
 		});
 	}])
 	//声明控制器
@@ -16,7 +16,7 @@
 	//此时jsonp中的url就必须加上callback=JSON_CALLBACK
 	//由于默认的angular提供的异步请求对象不支持自定义回调函数名，angular随机分配的回调函数名称不被第三方API支持
 	//则需要自定义一个跨域的服务在angular的controller中注入进来：HttpService
-	in_theaters.controller('IntheatersController', ['$scope','$http','$route','$routeParams','HttpService',function($scope,$http,$route,$routeParams,HttpService) {
+	movie_list.controller('MovieListController', ['$scope','$http','$route','$routeParams','HttpService',function($scope,$http,$route,$routeParams,HttpService) {
 		var page=parseInt($routeParams.page); //获取当前页
 		var pagecount=10; //每页显示条数
 		var start=(page-1)*pagecount;
@@ -27,7 +27,7 @@
 		$scope.currentpage=page;
 		$scope.pagetotal=0;
 		//$http,jsonp方式已经无法使用
-		// $http.jsonp('http://api.douban.com/v2/movie/in_theaters?callback=JSONP_CALLBACK&city=上海&start=1&count=10').then((result)=>{
+		// $http.jsonp('http://api.douban.com/v2/movie/'+$routeParams.classify+'?callback=JSONP_CALLBACK&city=上海&start=1&count=10').then((result)=>{
 		// 	if(result.status==200)
 		// 		$scope.movies=result.data;
 		// 	else
@@ -36,7 +36,7 @@
 		// 	$scope.massage=`请求数据失败，错误信息：${err.statusText}`;
 		// });
 		//自定义HttpService
-		HttpService.jsonp('http://api.douban.com/v2/movie/in_theaters',{
+		HttpService.jsonp('http://api.douban.com/v2/movie/'+$routeParams.classify,{
 			start:start,
 			count:pagecount,
 			city:'上海'
