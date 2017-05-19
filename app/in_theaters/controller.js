@@ -11,11 +11,12 @@
 		});
 	}])
 	//声明控制器
-	//注入一个做ajax请求的$http服务
+	//注入一个做ajax请求的$http服务 跨域请求用 $http.jsonp(url)方式
+	//此时jsonp中的url就必须加上callback=JSON_CALLBACK
 	in_theaters.controller('IntheatersController', ['$scope','$http',function($scope,$http) {
 		$scope.movies={};
 		$scope.massage='';
-		$http.get('/app/datas/in_theaters.json').then((result)=>{
+		$http.jsonp('http://api.douban.com/v2/movie/in_theaters?callback=JSONP_CALLBACK&city=上海&start=1&count=10').then((result)=>{
 			if(result.status==200)
 				$scope.movies=result.data;
 			else

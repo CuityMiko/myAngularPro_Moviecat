@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>测试自定义的jsonp组件</title>
+
+</head>
+<body>
+	<div id="divtest"></div>
+	<script src="/app/components/http.js"></script>
+	<script>
+		(function(window){
+			$jsonp('http://api.douban.com/v2/movie/in_theaters',{
+				start:1,
+				count:10,
+				city:'上海'
+			},function(data){
+				document.getElementById('divtest').innerHTML=JSON.stringify(data);
+			})
+		})(window)
+	</script>
+</body>
+</html>
