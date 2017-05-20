@@ -37,9 +37,9 @@
 			<!--左侧导航-->
 			<div class="col-sm-3 col-md-2 sidebar">
 				<ul class="nav nav-sidebar">
-					<li class="active"><a href="#/in_theaters/1">正在热映</a></li>
-					<li><a href="#/coming_soon/1">即将上映</a></li>
-					<li><a href="#/top250/1">Top250</a></li>
+					<li auto-focus><a href="#/in_theaters/1">正在热映</a></li>
+					<li auto-focus><a href="#/coming_soon/1">即将上映</a></li>
+					<li auto-focus><a href="#/top250/1">Top250</a></li>
 				</ul>
 			</div>
 			<!--中心内容-->
@@ -54,5 +54,7 @@
 	<script src="movie_list/controller.js"></script>
 	<!--自定义跨域jsonp服务-->
 	<script src="services/http.js"></script>
+	<!--自定义切换状态指令-->
+	<script src="directives/auto_focus.js"></script>
 </body>
 </html>

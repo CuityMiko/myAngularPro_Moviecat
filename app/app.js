@@ -2,9 +2,11 @@
 	'use strict';
 
 	// 声明主模块并引入movie_list子模块
+	// 引入自定义指令模块
 	var moviecatApp= angular.module('moviecatApp', [
 		'ngRoute',
-		'moviecatApp.movie_list'
+		'moviecatApp.movie_list',
+		'moviecatApp.directives.auto_focus'
 	]);
 	//配置路由规则
 	moviecatApp.config(['$routeProvider', function($routeProvider) {
