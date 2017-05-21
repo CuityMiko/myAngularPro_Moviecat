@@ -1,7 +1,7 @@
 //自执行函数
 (function(angular){
 	'use strict';
-	//声明正在热映子模块
+	//声明左侧导航菜单子模块
 	//注入自定义的跨域请求jsonp模块：moviecatApp.services.http
 	var movie_list=angular.module('moviecatApp.movie_list', ['ngRoute','moviecatApp.services.http']);
 	//配置路由

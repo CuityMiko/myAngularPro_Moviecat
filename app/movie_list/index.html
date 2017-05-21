@@ -5,7 +5,7 @@
     <span class="badge">{{movie.rating.average}}</span>
     <div class="media">
 		<div class="media-left">
-			<a ng-href="#">
+			<a ng-href="#/detail/{{movie.id}}">
 				<img class="media-object" ng-src="{{movie.images.medium}}" alt="{{movie.alt}}">
 			</a>
 		</div>
@@ -35,11 +35,11 @@
   </li>
 </ul>
 <div class="loading" ng-show="loading">
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
 </div>
 <div ng-show="!loading">
 	<p>总共<strong>{{total}}</strong>条记录，当前第<strong>{{currentpage}}</strong>页，共<strong>{{pagetotal}}</strong>页</p>

@@ -106,6 +106,9 @@ body {
 .media{
 	margin-top: 1px;
 }
+.jumbotron{
+	padding-top: 11px;
+}
 /*Loading*/
 .loading{
 		width: 150px;

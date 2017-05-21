@@ -1,0 +1,14 @@
+<div class="jumbotron" ng-if="!loading">
+  <h1>{{movie.title}}
+	  <a type="button" class="btn btn-default pull-right" href="javascript:history.back(-1)">返 回</a>
+  </h1>
+  <p><img ng-src="{{movie.images.large}}" alt="{{movie.title}}"></p>
+  <p>{{movie.summary}}</p>
+</div>
+<div class="loading" ng-show="loading">
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+</div>
