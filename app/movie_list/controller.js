@@ -39,7 +39,7 @@
 		HttpService.jsonp(Appconfig.listAPIurl+$routeParams.classify,{
 			start:start,
 			count:pagecount,
-			city:'上海',
+			city:Appconfig.city,
 			q:$routeParams.q
 		},function(result){
 			if(result){

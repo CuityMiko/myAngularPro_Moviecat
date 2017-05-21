@@ -13,6 +13,7 @@
 	//为注入的模块定义一些可配置的配置信息,子模块用的时候只需要注入一下即可使用
 	moviecatApp.constant("Appconfig",{
 		pagesize:10,
+		city:'杭州',
 		listAPIurl:'http://api.douban.com/v2/movie/',
 		detailAPIurl:'http://api.douban.com/v2/movie/subject/'
 	})
