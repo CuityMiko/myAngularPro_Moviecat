@@ -39,7 +39,8 @@
 		HttpService.jsonp('http://api.douban.com/v2/movie/'+$routeParams.classify,{
 			start:start,
 			count:pagecount,
-			city:'上海'
+			city:'上海',
+			q:$routeParams.q
 		},function(result){
 			if(result){
 				$scope.movies=result;

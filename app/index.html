@@ -25,9 +25,10 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">关于我们</a></li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
+          <!--<form class="navbar-form navbar-right" ng-submit="search()" ng-controller="SearchController">
+            <input type="text" class="form-control" ng-model="content" placeholder="Search...">
+          </form>-->
+					<div search></div>
         </div>
       </div>
 	</nav>
@@ -56,5 +57,7 @@
 	<script src="services/http.js"></script>
 	<!--自定义切换状态指令-->
 	<script src="directives/auto_focus.js"></script>
+	<!--自定义的搜索指令-->
+	<script src="directives/search.js"></script>
 </body>
 </html>
