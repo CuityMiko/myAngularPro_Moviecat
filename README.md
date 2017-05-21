@@ -12,3 +12,5 @@
 # .gitattributes是git在commit时候需要忽略的文件
 
 # .editorconfig是编码配置规范，统一不同开发者的不同开发工具的不同开发配置
+
+# bower安装异步加载js模块 bower install script.js或者load.js

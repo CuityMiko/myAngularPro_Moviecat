@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>测试异步加载模块-script.js</title>
+	<script src="../bower_components/script.js/dist/script.js"></script>
+	<script src="../libs/angular-loader.js"></script>
+	<script>
+		//scriptjs的使用
+		$script(['../bower_components/jquery/dist/jquery.js','../bower_components/angular/angular.js'],function(){
+			//此时script载入的两个js库是两个同时并行执行，则此时就会有依赖没有引用到的问题
+			//angular-loader的作用就是在使用一些异步加载脚本库的时候，自动控制依赖顺序
+			console.log($);
+			console.log(angular)
+		})
+	</script>
+</head>
+<body>
+
+</body>
+</html>
