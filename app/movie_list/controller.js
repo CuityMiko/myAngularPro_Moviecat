@@ -16,9 +16,9 @@
 	//此时jsonp中的url就必须加上callback=JSON_CALLBACK
 	//由于默认的angular提供的异步请求对象不支持自定义回调函数名，angular随机分配的回调函数名称不被第三方API支持
 	//则需要自定义一个跨域的服务在angular的controller中注入进来：HttpService
-	movie_list.controller('MovieListController', ['$scope','$http','$route','$routeParams','HttpService',function($scope,$http,$route,$routeParams,HttpService) {
+	movie_list.controller('MovieListController', ['$scope','$http','$route','$routeParams','HttpService','Appconfig',function($scope,$http,$route,$routeParams,HttpService,Appconfig) {
 		var page=parseInt($routeParams.page); //获取当前页
-		var pagecount=10; //每页显示条数
+		var pagecount=Appconfig.pagesize; //每页显示条数
 		var start=(page-1)*pagecount;
 		$scope.movies={};
 		$scope.massage='';
@@ -36,7 +36,7 @@
 		// 	$scope.massage=`请求数据失败，错误信息：${err.statusText}`;
 		// });
 		//自定义HttpService
-		HttpService.jsonp('http://api.douban.com/v2/movie/'+$routeParams.classify,{
+		HttpService.jsonp(Appconfig.listAPIurl+$routeParams.classify,{
 			start:start,
 			count:pagecount,
 			city:'上海',

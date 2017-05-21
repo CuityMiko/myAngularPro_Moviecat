@@ -10,6 +10,12 @@
 		'moviecatApp.directives.auto_focus',
 		'moviecatApp.directives.search' //注入自定义的搜索指令
 	]);
+	//为注入的模块定义一些可配置的配置信息,子模块用的时候只需要注入一下即可使用
+	moviecatApp.constant("Appconfig",{
+		pagesize:10,
+		listAPIurl:'http://api.douban.com/v2/movie/',
+		detailAPIurl:'http://api.douban.com/v2/movie/subject/'
+	})
 	//配置路由规则
 	moviecatApp.config(['$routeProvider', function($routeProvider) {
 		$routeProvider.otherwise({redirectTo: '/in_theaters/1'}); //当没有匹配到路由的时候则会跳转到默认配置的路由上去

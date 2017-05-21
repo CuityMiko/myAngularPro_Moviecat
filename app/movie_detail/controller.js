@@ -14,12 +14,12 @@
 	//声明控制器
 	//由于默认的angular提供的异步请求对象不支持自定义回调函数名，angular随机分配的回调函数名称不被第三方API支持
 	//则需要自定义一个跨域的服务在angular的controller中注入进来：HttpService
-	movie_detail.controller('MoviedetailController', ['$scope','$routeParams','HttpService',function($scope,$routeParams,HttpService) {
+	movie_detail.controller('MoviedetailController', ['$scope','$routeParams','HttpService','Appconfig',function($scope,$routeParams,HttpService,Appconfig) {
 		$scope.movie={};
 		$scope.loading=true;
 		$scope.massage='';
 		//自定义HttpService
-		HttpService.jsonp('http://api.douban.com/v2/movie/subject/'+$routeParams.id,{},function(result){
+		HttpService.jsonp(Appconfig.detailAPIurl+$routeParams.id,{},function(result){
 			if(result){
 				$scope.movie=result;
 				$scope.loading=false;
